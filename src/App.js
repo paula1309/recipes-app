@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { Login } from './Pages';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="/" element={ <Login /> } />
+        <Route path="/comidas" element={ <Login /> } />
+        <Route path="/bebidas" element={ <Login /> } />
+        <Route path="/comidas/:id" element={ <Login /> } />
+        <Route path="/bebidas/:id" element={ <Login /> } />
+        <Route path="/comidas/:id/in-progress" element={ <Login /> } />
+        <Route path="/bebidas/:id/in-progress" element={ <Login /> } />
+        <Route path="/explorar" element={ <Login /> } />
+        <Route path="/explorar/comidas" element={ <Login /> } />
+        <Route path="/explorar/bebidas" element={ <Login /> } />
+        <Route path="/explorar/comidas/ingredientes" element={ <Login /> } />
+        <Route path="/explorar/bebidas/ingredientes" element={ <Login /> } />
+        <Route path="/explorar/comidas/area" element={ <Login /> } />
+        <Route path="/perfil" element={ <Login /> } />
+        <Route path="/receitas-feitas" element={ <Login /> } />
+        <Route path="/receitas-favoritas" element={ <Login /> } />
+      </Routes>
     </div>
   );
 }
