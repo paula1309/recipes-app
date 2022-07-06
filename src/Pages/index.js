@@ -1,4 +1,4 @@
 import Login from './Login';
-import Main from './Main';
+import Food from './Food';
 
-export { Login, Main };
+export { Login, Food };

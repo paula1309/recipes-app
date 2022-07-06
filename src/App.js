@@ -1,13 +1,13 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Login } from './Pages';
+import { Login, Food } from './Pages';
 
 function App() {
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={ <Login /> } />
-        <Route path="/comidas" element={ <Login /> } />
+        <Route path="/comidas" element={ <Food /> } />
         <Route path="/bebidas" element={ <Login /> } />
         <Route path="/comidas/:id" element={ <Login /> } />
         <Route path="/bebidas/:id" element={ <Login /> } />
