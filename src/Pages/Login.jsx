@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+<<<<<<< HEAD
 import { getItemLocalStorage, setItemLocalStorage } from '../Utils';
+=======
+import { setItemLocalStorage } from '../Utils';
+>>>>>>> 31951645665d17321838fa689c3827ea6d08efe2
 import loginSchema from '../validation';
 
 
@@ -10,7 +14,10 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [disabled, setDisabled] = useState(true);
   const navigate = useNavigate();
+<<<<<<< HEAD
   const tokenTest = 1;
+=======
+>>>>>>> 31951645665d17321838fa689c3827ea6d08efe2
 
   const validation = () => {
       const { error } = loginSchema.validate({ email, password });  
