@@ -1,0 +1,10 @@
+/* estilização do Header */
+
+/* estilização do Footer */
+.footer-container {
+  bottom: 0;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
