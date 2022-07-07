@@ -1,15 +1,27 @@
 import React from "react";
 import { Container, Navbar } from "react-bootstrap";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import drinkIcons from '../images/drinkIcon.svg';
 import mealIcon from '../images/mealIcon.svg';
 import exploreIcon from '../images/exploreIcon.svg';
 
 export default function Footer() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  const handleClick = ({ target: { id }}) => {
-    console.log(id);
+  const handleFooterIcons = ({ target: { id }}) => {
+    switch (id) {
+      case 'drink-icon':
+        navigate('/bebidas');
+        break;
+      case 'explore-icon':
+        navigate('/explorar');
+        break;
+      case 'meal-icon':
+        navigate('/comidas');
+        break;
+      default:
+        break;
+    }
   };
 
   return (
@@ -17,18 +29,18 @@ export default function Footer() {
       <Navbar className="footer-container" bg="light">
           <Container>
           <Navbar.Brand data-testid="profile-top-btn">
-            <button  type="button" onClick={ handleClick }>
+            <button  type="button" onClick={ handleFooterIcons }>
               <img id="drink-icon"  src={ drinkIcons } alt="Drink Icon" />
             </button>
           </Navbar.Brand>
           <Navbar.Brand>
-            <button type="button" onClick={ handleClick }>
+            <button type="button" onClick={ handleFooterIcons }>
               <img id="explore-icon" src={ exploreIcon } alt="search icon" />
             </button>
           </Navbar.Brand>
           <Navbar.Brand data-testid="search-top-btn">
-            <button type="button" onClick={ handleClick }>
-              <img id="search-icon"  src={ mealIcon } alt="Search Icon"/>
+            <button type="button" onClick={ handleFooterIcons }>
+              <img id="meal-icon"  src={ mealIcon } alt="Search Icon"/>
             </button>
           </Navbar.Brand>
           </Container>
