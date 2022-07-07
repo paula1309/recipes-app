@@ -3,6 +3,6 @@ import Header from '../Components/Header';
 
 export default function Main() {
   return(
-    <Header></Header>
+    <Header />
   )
 }

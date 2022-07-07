@@ -7,6 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import Provider from './Context/Provider';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+const axios = require('axios');
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
