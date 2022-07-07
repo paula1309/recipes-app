@@ -13,9 +13,7 @@ export default function Header() {
     if (name === 'profileTop') {
       return navigate('/perfil');
     }
-    if (name === 'searchIcon') {
-      setHidden(!hidden);
-    }
+    return setHidden(!hidden);
   }
 
   return(

@@ -7,25 +7,24 @@ export default function SearchBar() {
   const [radioSelected, setRadioSelected] = useState("");
 
   const handleChange = ({ target: { value } }) => {
-    setItem(value);
-
+    return setItem(value);
   }
 
   const handleRadioButtons = ({ target: { value }}) => {
-    setRadioSelected(value);
+    return setRadioSelected(value);
   }
 
   const handleClick = () => {
-    if (radioSelected === 'ingredient') {
-      return getFoodByIngredient(item);
+    switch(radioSelected) {
+      case 'ingredient':
+        getFoodByIngredient(item);
+        break;
+      case 'name':
+        getFoodByName(item);
+        break;
+      case 'firstLetter':
+        getFoodByFirstName(item);
     }
-    if (radioSelected === 'name') {
-      return getFoodByName(item);
-    }
-    if (radioSelected ==='firstLetter') {
-      return getFoodByFirstName(item);
-    }
-    
   }
   
   return(
