@@ -1,5 +1,5 @@
 import Login from './Login';
-import Main from './Main';
+import Food from './Food';
 import Profile from './Profile';
 
-export { Login, Main, Profile };
+export { Login, Food, Profile };

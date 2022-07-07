@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import { setItemLocalStorage } from '../Utils';
+import { getItemLocalStorage, setItemLocalStorage } from '../Utils';
 import loginSchema from '../validation';
 
 
@@ -10,6 +10,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [disabled, setDisabled] = useState(true);
   const navigate = useNavigate();
+  const tokenTest = 1;
 
   const validation = () => {
       const { error } = loginSchema.validate({ email, password });  
@@ -21,9 +22,15 @@ export default function Login() {
     return validation();
   };
 
-  const handleClick = () => {
-    setItemLocalStorage('mealsToken', 1);
-    setItemLocalStorage('cocktailsToken', 1);
+  const emailAllreadyExist = () => {
+    const emailFromStorage = getItemLocalStorage('user');
+    return emailFromStorage === email ? navigate('/comidas') : true;
+  };
+
+  const handleSubmit = () => {
+    emailAllreadyExist();
+    setItemLocalStorage('mealsToken', tokenTest);
+    setItemLocalStorage('cocktailsToken', tokenTest);
     setItemLocalStorage('user', { email });
     setItemLocalStorage('doneRecipes', []);
     setItemLocalStorage('favoriteRecipes', []);
@@ -61,7 +68,7 @@ export default function Login() {
         type="button"
         data-testid="login-submit-btn"
         disabled={ disabled }
-        onClick={ handleClick }
+        onClick={ handleSubmit }
       >
         Entrar
       </Button>
