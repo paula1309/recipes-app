@@ -21,7 +21,7 @@ const getFirstFoodRecipes = async () => {
 };
 
 const getFirstDrinkRecipes = async () => {
-  const { data: { drinks } } = await axios.get('https://www.themealdb.com/api/json/v1/1/search.php?s=');
+  const { data: { drinks } } = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=');
   return drinks.slice(0, 12);
 };
 
