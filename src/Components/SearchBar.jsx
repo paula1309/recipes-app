@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
-import { getFoodByIngredient, getFoodByFirstName, getFoodByName } from '../Api Conexions/apiConexions';
+import { getFoodByIngredient, getFoodByFirstName, getFoodByName } from '../Helpers/apiConexions';
 
 export default function SearchBar() {
   const [item, setItem] = useState("");
@@ -8,11 +8,11 @@ export default function SearchBar() {
 
   const handleChange = ({ target: { value } }) => {
     return setItem(value);
-  }
+  };
 
   const handleRadioButtons = ({ target: { value }}) => {
     return setRadioSelected(value);
-  }
+  };
 
   const handleClick = () => {
     switch(radioSelected) {
@@ -24,8 +24,11 @@ export default function SearchBar() {
         break;
       case 'firstLetter':
         getFoodByFirstName(item);
+        break;
+      default:
+        break;
     }
-  }
+  };
   
   return(
     <Form className="m-2">
@@ -72,5 +75,5 @@ export default function SearchBar() {
         Buscar
       </Button>
     </Form>
-  )
-}
+  );
+};

@@ -14,7 +14,7 @@ const getFoodByName = async (name) => {
 
 const getFoodByFirstName = async (firstName) => {
     const { data: {meals} } = await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?f=${firstName}`);
-    
+    console.log(meals);
     return meals;
 }
 
@@ -22,4 +22,4 @@ export {
     getFoodByIngredient,
     getFoodByName,
     getFoodByFirstName
-};
+}; 
