@@ -8,11 +8,11 @@ export default function SearchBar() {
 
   const handleChange = ({ target: { value } }) => {
     return setItem(value);
-  }
+  };
 
   const handleRadioButtons = ({ target: { value }}) => {
     return setRadioSelected(value);
-  }
+  };
 
   const handleClick = () => {
     switch(radioSelected) {
@@ -28,7 +28,7 @@ export default function SearchBar() {
       default:
         break;
     }
-  }
+  };
   
   return(
     <Form className="m-2">
@@ -75,5 +75,5 @@ export default function SearchBar() {
         Buscar
       </Button>
     </Form>
-  )
-}
+  );
+};
