@@ -20,7 +20,6 @@ export default function MainDrink() {
           <img src={ recipe.strDrinkThumb } alt={ recipe.strDrink } width="125px" />
           <h6>{ recipe.strDrink }</h6>
         </section>
-
       );
     })
   );
