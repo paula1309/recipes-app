@@ -16,7 +16,7 @@ export default function MainDrink() {
   return (
     recipes.map((recipe) => {
       return (
-        <section>
+        <section key={ recipe.strDrink }>
           <img src={ recipe.strDrinkThumb } alt={ recipe.strDrink } width="125px" />
           <h6>{ recipe.strDrink }</h6>
         </section>
