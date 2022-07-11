@@ -35,6 +35,16 @@ const getDrinkCategories = async () => {
   return drinks.slice(0, 5);
 };
 
+const getFoodRecipesByCategory = async (category) => {
+  const { data: { meals } } = await axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`);
+  return meals;
+};
+
+const getDrinkRecipesByCategory = async (category) => {
+  const { data: { meals } } = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category}`);
+  return meals;
+};
+
 export {
     getFoodByIngredient,
     getFoodByName,
@@ -43,4 +53,6 @@ export {
     getFirstDrinkRecipes,
     getFoodCategories,
     getDrinkCategories,
+    getFoodRecipesByCategory,
+    getDrinkRecipesByCategory,
 };
