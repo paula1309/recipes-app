@@ -18,15 +18,18 @@ export default function MainDrink() {
 
   return (
     <>
-      {categories.map((category) => {
-        return (
-          <nav key={ category.strCategory }>
-            <button>
+      <nav>
+        {categories.map((category) => {
+          return (
+            <button
+              key={ category.strCategory }
+              data-testid={ `${ category.strCategory }-category-filter` }
+            >
               { category.strCategory }
             </button>
-          </nav>
-        )
-      })}
+          )
+        })}
+      </nav>
       {recipes.map((recipe) => {
         return (
           <section key={ recipe.idDrink }>
