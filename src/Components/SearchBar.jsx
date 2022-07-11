@@ -24,7 +24,11 @@ export default function SearchBar() {
         break;
       case 'firstLetter':
         getFoodByFirstName(item);
+        break;
+      default:
+        alert("Selecione uma opção!");
     }
+
   }
   
   return(
