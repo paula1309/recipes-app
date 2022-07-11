@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import { getItemLocalStorage, setItemLocalStorage } from '../Utils';
-import loginSchema from '../validation';
+import { getItemLocalStorage, setItemLocalStorage } from '../Helpers/Utils';
+import loginSchema from '../Helpers/validation';
 
 
 export default function Login() {

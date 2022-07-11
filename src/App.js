@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Login, Food, Profile } from './Pages';
+import { Login, Food, Profile, Drink } from './Pages';
 
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
       <Routes>
         <Route path="/" element={ <Login /> } />
         <Route path="/comidas" element={ <Food /> } />
-        <Route path="/bebidas" element={ <Login /> } />
+        <Route path="/bebidas" element={ <Drink /> } />
         <Route path="/comidas/:id" element={ <Login /> } />
         <Route path="/bebidas/:id" element={ <Login /> } />
         <Route path="/comidas/:id/in-progress" element={ <Login /> } />
