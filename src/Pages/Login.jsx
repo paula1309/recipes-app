@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { getItemLocalStorage, setItemLocalStorage } from '../Helpers/Utils';
@@ -11,30 +11,29 @@ export default function Login() {
   const [disabled, setDisabled] = useState(true);
   const navigate = useNavigate();
   const tokenTest = 1;
-
-  const validation = () => {
-      const { error } = loginSchema.validate({ email, password });  
+    
+    useEffect(() => {
+      const { error } = loginSchema.validate({ email, password });
       return error? setDisabled(true) : setDisabled(false);
-  };
-
-  const handleChange = ({ target: { name, value } }) => {
-    name === 'email'? setEmail(value) : setPassword(value);
-    return validation();
-  };
+  }, [email, password]);
 
   const emailAllreadyExist = () => {
     const emailFromStorage = getItemLocalStorage('user');
     return emailFromStorage === email ? navigate('/comidas') : true;
   };
 
-  const handleSubmit = () => {
-    emailAllreadyExist();
+  const setLocalStorage = () => {
     setItemLocalStorage('mealsToken', tokenTest);
     setItemLocalStorage('cocktailsToken', tokenTest);
     setItemLocalStorage('user', { email });
     setItemLocalStorage('doneRecipes', []);
     setItemLocalStorage('favoriteRecipes', []);
     setItemLocalStorage('inProgressRecipes', []);
+  };
+
+  const handleSubmit = () => {
+    emailAllreadyExist();
+    setLocalStorage();
     return navigate('/comidas');
   };
 
@@ -50,7 +49,7 @@ export default function Login() {
           data-testid="email-input"
           name="email"
           value={ email }
-          onChange={ handleChange }
+          onChange={ (e) => setEmail(e.target.value) }
         />
       </Form.Group>
       <Form.Group className="mb-3" controlId="Password">
@@ -60,7 +59,7 @@ export default function Login() {
           data-testid="password-input"
           name="password"
           value={ password }
-          onChange={ handleChange }
+          onChange={ (e) => setPassword(e.target.value) }
         />
       </Form.Group>
       <Button
