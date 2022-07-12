@@ -26,9 +26,10 @@ export default function SearchBar() {
         getFoodByFirstName(item);
         break;
       default:
-        break;
+        alert("Selecione uma opção!");
     }
-  };
+
+  }
   
   return(
     <Form className="m-2">
